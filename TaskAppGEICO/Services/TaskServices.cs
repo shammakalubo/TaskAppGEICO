@@ -160,6 +160,10 @@ namespace TaskAppGEICO.Services
             try
             {
                 //var updateTask = dbContext.TaskTables.Update(task);
+                // dbContext.Entry(task).State = EntityState.Detached;
+                //await dbContext.SaveChangesAsync();
+
+
                 var updateTask = dbContext.Entry(task).State=EntityState.Modified;
                 await dbContext.SaveChangesAsync();
 

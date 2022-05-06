@@ -31,8 +31,12 @@ namespace TaskAppGEICO
         {
             services.AddControllers();
             services.AddHttpClient();
-            services.AddDbContext<GEICOTESTContext>(options=>options.UseSqlServer(Configuration["DbConnection"]));
             //services.AddScoped<GEICOTESTContext>(options=>options.UseSqlServer(Configuration["DbConnection"]));
+            services.AddDbContext<GEICOTESTContext>(options =>
+            {
+                options.UseSqlServer(Configuration["DbConnection"]);
+                options.EnableSensitiveDataLogging();
+            });
 
             services.AddScoped<ITaskServices, TaskServices>();
 

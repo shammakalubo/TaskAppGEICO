@@ -94,7 +94,6 @@ namespace TaskAppGEICO.Controllers
         }
 
         [HttpGet("getTasks")]
-        //public async Task<List<TaskTable>> GetTasks()
         public async Task<object> GetTasks()
 
         {

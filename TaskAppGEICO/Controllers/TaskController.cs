@@ -94,7 +94,8 @@ namespace TaskAppGEICO.Controllers
         }
 
         [HttpGet("getTasks")]
-        public async Task<List<TaskTable>> GetTasks()
+        public async Task<object> GetTasks()
+
         {
             List<TaskTable> taskTable = new List<TaskTable>();  
 
@@ -109,7 +110,14 @@ namespace TaskAppGEICO.Controllers
                 try
                 {
                   var taskList=  await taskServices.GetTasks(erm);
-                    return taskList;
+                    if (erm.MessageType == "Error")
+                    {
+                        return erm;
+                    }
+                    else
+                    {
+                        return taskList;
+                    }
 
                 }
                 catch (Exception ex)

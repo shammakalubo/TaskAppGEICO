@@ -159,7 +159,6 @@ namespace TaskAppGEICO.Services
         {
             try
             {
-                //var updateTask = dbContext.TaskTables.Update(task);
                 var updateTask = dbContext.Entry(task).State=EntityState.Modified;
                 await dbContext.SaveChangesAsync();
 
@@ -167,7 +166,7 @@ namespace TaskAppGEICO.Services
             }
             catch (Exception e)
             {
-                message.MessageDescription = ($"An error campe up while saving a task. {task.Description} ");
+                message.MessageDescription = ($"An error occurred up while saving the task. {task.Description} ");
                 message.MessageType = $"Error, {e.Message}";
             }
         }
@@ -184,7 +183,7 @@ namespace TaskAppGEICO.Services
             }
             catch (Exception e)
             {
-                message.MessageDescription = ($"An error campe up while saving a task. {task.Description} ");
+                message.MessageDescription = ($"An error occurred up while saving a task. {task.Description} ");
                 message.MessageType = $"Error, {e.Message}";
             }
         }
@@ -201,7 +200,7 @@ namespace TaskAppGEICO.Services
             }
             catch (Exception e)
             {
-                message.MessageDescription = ($"An error campe up while saving a task. {task.Description} ");
+                message.MessageDescription = ($"An error occurred up while saving a task. {task.Description} ");
                 message.MessageType = $"Error, {e.Message}";
             }
         }
